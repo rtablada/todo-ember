@@ -35,5 +35,7 @@ test('submitting a form creates a new todo', function(assert) {
       'The new todo is saved to the server with title');
 
     assert.ok(find('.test-todo-item:eq(0)').text().includes('Walk the doggo'));
+
+    assert.equal(find('.test-new-title-input').val(), '');
   });
 });

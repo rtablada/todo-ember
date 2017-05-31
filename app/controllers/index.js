@@ -15,7 +15,9 @@ export default Ember.Controller.extend({
       changeset.save();
 
       const todo = this.store.createRecord('todo', this.get('inputVals'));
-      todo.save();
+      todo.save().then(() => {
+        this.setupFormValues();
+      });
     }
   }
 });
