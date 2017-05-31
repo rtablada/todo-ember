@@ -1,0 +1,15 @@
+body {
+  margin: 2rem;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1rem;
+}
+
+.space {
+  margin: 1rem;
+  height: 2rem;
+  flex-basis: calc(100% / 4 - 2rem);
+}
