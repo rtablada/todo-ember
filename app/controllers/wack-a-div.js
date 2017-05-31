@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
 
   game: task(function* () {
     while (true) {
-      yield timeout(1000);
+      yield timeout(2000 / Math.pow(2, this.score));
 
       this.changeBoard();
     }

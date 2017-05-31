@@ -1,4 +1,10 @@
-<h2>Your Score is: {{score}}</h2>
+{{#if game.isRunning}}
+  <h2>Your Score is: {{score}}</h2>
+{{else}}
+  <button
+    class="start-button"
+    onclick={{action "startGame"}}>Start</button>
+{{/if}}
 
 <div class="board">
   {{#each board as |space|}}
@@ -7,6 +13,3 @@
   {{/each}}
 </div>
 
-<button
-  class="start-button"
-  onclick={{action "startGame"}}>Start</button>
