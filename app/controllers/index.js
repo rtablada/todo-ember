@@ -18,6 +18,10 @@ export default Ember.Controller.extend({
       todo.save().then(() => {
         this.setupFormValues();
       });
+    },
+
+    removeTodo(todo) {
+      todo.destroyRecord();
     }
   }
 });

@@ -12,6 +12,10 @@
 
 <ul>
   {{#each model as |todo|}}
-    <li class="test-todo-item">{{todo.title}}</li>
+    <li class="test-todo-item">
+      {{todo.title}}
+
+      <button class="test-todo-delete" onclick={{action "removeTodo" todo}}>DELETE</button>
+    </li>
   {{/each}}
 </ul>

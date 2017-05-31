@@ -27,15 +27,32 @@ test('submitting a form creates a new todo', function(assert) {
     assert.equal(currentURL(), '/',
       'It should not redirect');
 
-     assert.equal(find('.test-todo-item').length, 1,
+    assert.equal(find('.test-todo-item').length, 1,
       'The new todo shows up in the list');
-     assert.equal(server.db.todos.length, 1,
+    assert.equal(server.db.todos.length, 1,
       'The new todo is saved to the server');
-     assert.equal(server.db.todos[0].title, 'Walk the doggo',
+    assert.equal(server.db.todos[0].title, 'Walk the doggo',
       'The new todo is saved to the server with title');
 
     assert.ok(find('.test-todo-item:eq(0)').text().includes('Walk the doggo'));
 
     assert.equal(find('.test-new-title-input').val(), '');
+  });
+});
+
+test('deleting a todo removes it from the list', function(assert) {
+  server.createList('todo', 2);
+  visit('/');
+
+  click('.test-todo-delete:eq(0)');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/',
+      'It should not redirect');
+
+    assert.equal(find('.test-todo-item').length, 1,
+      'The item does not show up in the list');
+    assert.equal(server.db.todos.length, 1,
+      'The new todo is removed from the server');
   });
 });
