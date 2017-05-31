@@ -13,3 +13,7 @@ body {
   height: 2rem;
   flex-basis: calc(100% / 4 - 2rem);
 }
+
+.space--active {
+  background: red;
+}

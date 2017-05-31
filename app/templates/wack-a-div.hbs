@@ -1,7 +1,12 @@
+<h2>Your Score is: {{score}}</h2>
+
 <div class="board">
   {{#each board as |space|}}
-    <button class="space"></button>
+    <button class="space {{if space 'space--active'}}"
+     onclick={{action "score" space}}></button>
   {{/each}}
 </div>
 
-<button class="start-button">Start</button>
+<button
+  class="start-button"
+  onclick={{action "startGame"}}>Start</button>
