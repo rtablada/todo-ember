@@ -1,3 +1,15 @@
+{{#with (changeset inputVals) as |newTodo|}}
+  <form onsubmit={{action "saveTodo" newTodo}}>
+    {{input
+      class="test-new-title-input"
+      autofocus=true value=newTodo.title placeholder="What needs to be done?"}}
+
+    <button
+      class="test-new-todo-submit"
+      type="submit">Submit</button>
+  </form>
+{{/with}}
+
 <ul>
   {{#each model as |todo|}}
     <li class="test-todo-item">{{todo.title}}</li>
